@@ -22,13 +22,12 @@ if stastna:
         print('Gratuluji!')
     else:
         # Tady musí být jen šťastná.
+        print('Zkus míň utrácet.')
+else:
+    if bohata:
+        # Je bohatá, ale není „bohatá a zároveň šťastná“,
+        # takže musí být jen bohatá.
         print('Zkus se víc usmívat.')
-    
-if bohata and not stastna:
-    # Je bohatá, ale není „bohatá a zároveň šťastná“,
-    # takže musí být jen bohatá.
-    print('Zkus míň utrácet.')
-
-if not stastna and not bohata:
-    # A tady víme, že není ani šťastná, ani bohatá.
-    print('To je mi líto.')
+    else:
+        # A tady víme, že není ani šťastná, ani bohatá.
+        print('To je mi líto.')
