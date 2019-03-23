@@ -9,8 +9,9 @@ if op == "-":
     n = n1 - n2
 if op == "*":
     n = n1 * n2
+if op == "/" and n2 == 0:
+  print("Nulou nelze dělit. Zkus zadat hodnoty znovu.")    
 if op == "/":
     n = n1 / n2
 
-print(n1,op,n2, end=' = ')
-print(n)
+print(n1,op,n2,' =', n)

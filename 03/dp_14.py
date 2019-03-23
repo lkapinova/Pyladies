@@ -1,6 +1,6 @@
 import math
 from math import pi, sin
-from turtle import forward, left, right, exitonclick
+from turtle import forward, left, right, exitonclick, penup, pendown
 from random import randrange
 
 # výpočet délky strany pěticípé hvězdy
@@ -41,9 +41,12 @@ for i in range(10):
     length_for_move = randrange(100, 200)
     angle_for_move = randrange(0, 360)
 
+
     # přesun kurzoru na jiné místo
+    penup()
     forward(length_for_move)
     right(angle_for_move)
+    pendown()
 
 
 exitonclick()
