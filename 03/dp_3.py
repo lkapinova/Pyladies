@@ -10,7 +10,8 @@ if op == "-":
 if op == "*":
     n = n1 * n2
 if op == "/" and n2 == 0:
-  print("Nulou nelze dělit. Zkus zadat hodnoty znovu.")    
+  print("Nulou nelze dělit. Zkus zadat hodnoty znovu.")
+  exit()    
 if op == "/":
     n = n1 / n2
 
