@@ -1,7 +1,6 @@
 from turtle import forward, left, right, exitonclick
 
 
-for i in range(10): 
     forward(50)
     left(90)
     forward(50)
