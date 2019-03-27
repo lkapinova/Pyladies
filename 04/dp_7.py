@@ -2,10 +2,10 @@ def ano_nebo_ne(otazka):
     "Vrátí True nebo False, podle odpovědi uživatele"
     while True:
         odpoved = input(otazka)
-        odpoved = odpoved.lower
-        if odpoved == 'ano' or 'a':
+        odpoved = odpoved.lower().strip()
+        if (odpoved == 'ano') or (odpoved == 'a'):
             return True
-        elif odpoved == 'ne'or 'n':
+        elif (odpoved == 'ne') or (odpoved == 'n'):
             return False
         else:
             print('Nerozumím! Odpověz "ano" nebo "ne".')
