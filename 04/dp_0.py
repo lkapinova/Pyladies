@@ -18,6 +18,10 @@ def draw_house(size):
     right(135)
     forward(2**(1/2)*size)
     left(45)
-    exitonclick()
-
+    # forward(size)
+   
 draw_house(125)
+forward(20)
+draw_house(25)
+
+exitonclick()

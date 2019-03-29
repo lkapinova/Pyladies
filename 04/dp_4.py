@@ -1,10 +1,10 @@
-# def pokus():
-#     "Tahle funkce nic nedela"
+def pokus():
+    "Tahle funkce nic nedela"
     
-# print(pokus())
+print(pokus())
 
 # while True:
 #     pass
 
-for i in range (10):
+# for i in range (10):
     #pass
