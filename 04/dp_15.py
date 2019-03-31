@@ -1,9 +1,13 @@
 def ramecek(rozmer):
     for i in range (rozmer):
         if i == 0:
-            print(rozmer*'x ')
+            for j in range(rozmer):
+                print('x', end=' ')
+            print()
         if i == rozmer-1:
-            print(rozmer*'x ')
+            for k in range(rozmer):
+                print('x', end=' ')
+            print()
         else:
             print('x' + (2*rozmer-3)*' ' + 'x')
 
