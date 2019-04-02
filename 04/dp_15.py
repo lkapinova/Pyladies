@@ -1,4 +1,5 @@
 def ramecek(rozmer):
+    "nakreslí rámeček složený z x"
     for i in range (rozmer):
         if i == 0 or i == rozmer-1:
             for j in range(rozmer):
