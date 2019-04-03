@@ -12,7 +12,6 @@
 
 # Odkazy:
 * https://github.com/vojtechruz/pyladies-7
-
-* retezce - specialni znaky
+* retezce - specialni znaky:
 * https://linuxconfig.org/list-of-python-escape-sequence-characters-with-examples
 * https://unicode-table.com/en/#0696
