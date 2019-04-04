@@ -1,4 +1,5 @@
-# Napiš funkci tah, která dostane řetězec s herním polem, číslo políčka (0-19), a symbol (x nebo o) a vrátí herní pole (t.j. řetězec) s daným symbolem umístěným na danou pozici.
+# Napiš funkci tah, která dostane řetězec s herním polem, číslo políčka (0-19), a symbol (x nebo o) a 
+# vrátí herní pole (t.j. řetězec) s daným symbolem umístěným na danou pozici.
 
 # Hlavička funkce by tedy měla vypadat nějak takhle:
 
