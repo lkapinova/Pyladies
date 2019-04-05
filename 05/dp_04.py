@@ -18,6 +18,7 @@ def tah_hrace(herni_pole):
                     print("Smula, policko uz je zabrane.")
             else:
                 print("Bohuzel, netrefil ses do herniho pole.")
+                continue
         else:
             print("Co delas?! Hrajeme piskovorky! Zkus to znovu.")
             continue
