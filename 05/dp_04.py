@@ -16,6 +16,7 @@ def tah_hrace(herni_pole):
                     herni_pole = herni_pole[:tvuj_tah] + 'x' + herni_pole[(tvuj_tah+1):]
                 elif herni_pole[tvuj_tah] != '-':
                     print("Smula, policko uz je zabrane.")
+                    continue
             else:
                 print("Bohuzel, netrefil ses do herniho pole.")
                 continue
