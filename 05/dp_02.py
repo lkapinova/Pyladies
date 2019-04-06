@@ -12,7 +12,7 @@ def vyhodnot(piskvorky):
         vysledek = 'x'
     elif "ooo" in piskvorky:
         vysledek = 'o'
-    elif "-" not in piskvorky and "xxx" not in piskvorky and "ooo" not in piskvorky:
+    elif "-" not in piskvorky:
         vysledek = "!"
     else:
         vysledek = '-'
@@ -22,4 +22,3 @@ print(vyhodnot("xxoxoxoxoxxoxxoox"))
 print(vyhodnot("xxxoxoxox-xxoxxoo"))
 print(vyhodnot("xxoooxoxox-xxoxxoo-o--"))
 print(vyhodnot("----x--o--xx--oo-xo-oxo--"))
-print(vyhodnot("xxx-ooo-xxxox--xoox-x"))

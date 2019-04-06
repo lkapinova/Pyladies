@@ -4,6 +4,12 @@
 # Funkce by měla odmítnout záporná nebo příliš velká čísla a tahy na obsazená políčka. 
 # Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
 
+def tah(pole, cislo_policka, symbol):
+    "Vrátí herní pole s daným symbolem umístěným na danou pozici"
+    
+    herni_pole = pole[:cislo_policka] + symbol + pole[(cislo_policka+1):]
+    return herni_pole
+
 def tah_hrace(herni_pole):
     "Funkce zaznamenava tah hrace do herniho pole a kontroluje vstupni data hrace."
 
@@ -13,7 +19,7 @@ def tah_hrace(herni_pole):
             tvuj_tah = int(tvuj_tah)
             if tvuj_tah >= 0 and tvuj_tah <= 19:
                 if herni_pole[tvuj_tah] == '-':
-                    herni_pole = herni_pole[:tvuj_tah] + 'x' + herni_pole[(tvuj_tah+1):]
+                    herni_pole = tah(herni_pole, tvuj_tah, 'x')
                 elif herni_pole[tvuj_tah] != '-':
                     print("Smula, policko uz je zabrane.")
                     continue

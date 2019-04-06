@@ -1,8 +1,5 @@
-# Napiš funkci piskvorky1d, která vytvoří řetězec s herním polem a 
-# střídavě volá funkce tah_hrace a tah_pocitace, 
-# dokud někdo nevyhraje nebo nedojde k remíze.
-
-# Nezapomeň kontrolovat stav hry po každém tahu.
+# Zvládneš pro počítač naprogramovat lepší strategii? 
+# Třeba aby se snažil hrát vedle svých existujících symbolů nebo aby bránil protihráčovi?
 
 import random
 
@@ -31,7 +28,7 @@ def tah_hrace(herni_pole):
         else:
             print("Co delas?! Hrajeme piskovorky! Zkus to znovu.")
             continue
-        return herni_pole
+        return herni_pole, tvuj_tah
 
 def tah_pocitace(herni_pole):
     "Vrátí herní pole se zaznamenaným tahem počítače"

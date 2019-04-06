@@ -8,15 +8,19 @@
 
 import random
 
+def tah(pole, cislo_policka, symbol):
+    "Vrátí herní pole s daným symbolem umístěným na danou pozici"
+    
+    herni_pole = pole[:cislo_policka] + symbol + pole[(cislo_policka+1):]
+    return herni_pole
+
 def tah_pocitace(herni_pole):
     "Vrátí herní pole se zaznamenaným tahem počítače"
     while True:
         tah_pc = random.randint(0,19)
         if herni_pole[tah_pc] == '-':
-            herni_pole = herni_pole[:tah_pc] + 'o' + herni_pole[(tah_pc+1):]
+            herni_pole = tah(herni_pole, tah_pc, 'o')
             break
-        else:
-            continue
     return herni_pole
 
 print(tah_pocitace('-'*20))
