@@ -20,15 +20,14 @@ def tah_hrace(herni_pole):
             if tvuj_tah >= 0 and tvuj_tah <= 19:
                 if herni_pole[tvuj_tah] == '-':
                     herni_pole = tah(herni_pole, tvuj_tah, 'x')
-                elif herni_pole[tvuj_tah] != '-':
+                    break
+                else:
                     print("Smula, policko uz je zabrane.")
-                    continue
             else:
                 print("Bohuzel, netrefil ses do herniho pole.")
-                continue
         else:
             print("Co delas?! Hrajeme piskovorky! Zkus to znovu.")
-            continue
-        return herni_pole
+    return herni_pole
 
 print(tah_hrace('-'*20))
+print(tah_hrace("----xx----"))
