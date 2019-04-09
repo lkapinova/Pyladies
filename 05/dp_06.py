@@ -15,22 +15,25 @@ def tah(pole, cislo_policka, symbol):
 def tah_hrace(herni_pole):
     "Funkce zaznamenava tah hrace do herniho pole a kontroluje vstupni data hrace."
 
-    delka_pole = len(herni_pole)
     while True:
         tvuj_tah = input("Kam chces umistit svuj symbol? ")
-        if tvuj_tah.isdigit():
-            tvuj_tah = int(tvuj_tah)
-            if tvuj_tah >= 0 and tvuj_tah <= delka_pole:
-                if herni_pole[tvuj_tah] == '-':
-                    herni_pole = tah(herni_pole, tvuj_tah, 'x')
-                    break
-                else:
-                    print("Smula, policko uz je zabrane.")
-            else:
-                print("Bohuzel, netrefil ses do herniho pole.")
+
+        if not tvuj_tah.isdigit():
+            print("Nezadal jsi cislo.")
+            continue
+        
+        tvuj_tah = int(tvuj_tah)
+
+        if tvuj_tah not in range(len(herni_pole)):
+            print("Bohuzel, netrefil ses do herniho pole.")
+            continue
+
+        elif herni_pole[tvuj_tah] != '-':
+            print("Smula, policko uz je zabrane.")
+            continue
+
         else:
-            print("Co delas?! Hrajeme piskovorky! Zkus to znovu.")
-    return herni_pole
+            return tah(herni_pole, tvuj_tah, 'x')
 
 def tah_pocitace(herni_pole):
     "Vrátí herní pole se zaznamenaným tahem počítače"

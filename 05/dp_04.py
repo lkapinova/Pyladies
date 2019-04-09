@@ -10,24 +10,48 @@ def tah(pole, cislo_policka, symbol):
     herni_pole = pole[:cislo_policka] + symbol + pole[(cislo_policka+1):]
     return herni_pole
 
+# def tah_hrace(herni_pole):
+#     "Funkce zaznamenava tah hrace do herniho pole a kontroluje vstupni data hrace."
+
+#     while True:
+#         tvuj_tah = input("Kam chces umistit svuj symbol? ")
+#         if tvuj_tah.isdigit():
+#             tvuj_tah = int(tvuj_tah)
+#             if tvuj_tah >= 0 and tvuj_tah <= 19:
+#                 if herni_pole[tvuj_tah] == '-':
+#                     herni_pole = tah(herni_pole, tvuj_tah, 'x')
+#                     break #asi tu neni potreba
+#                 else:
+#                     print("Smula, policko uz je zabrane.")
+#             else:
+#                 print("Bohuzel, netrefil ses do herniho pole.")
+#         else:
+#             print("Co delas?! Hrajeme piskovorky! Zkus to znovu.")
+#     return herni_pole
+
 def tah_hrace(herni_pole):
     "Funkce zaznamenava tah hrace do herniho pole a kontroluje vstupni data hrace."
 
     while True:
         tvuj_tah = input("Kam chces umistit svuj symbol? ")
-        if tvuj_tah.isdigit():
-            tvuj_tah = int(tvuj_tah)
-            if tvuj_tah >= 0 and tvuj_tah <= 19:
-                if herni_pole[tvuj_tah] == '-':
-                    herni_pole = tah(herni_pole, tvuj_tah, 'x')
-                    break
-                else:
-                    print("Smula, policko uz je zabrane.")
-            else:
-                print("Bohuzel, netrefil ses do herniho pole.")
+
+        if not tvuj_tah.isdigit():
+            print("Nezadal jsi cislo.")
+            continue
+        
+        tvuj_tah = int(tvuj_tah)
+
+        if tvuj_tah not in range(len(herni_pole)):
+            print("Bohuzel, netrefil ses do herniho pole.")
+            continue
+
+        elif herni_pole[tvuj_tah] != '-':
+            print("Smula, policko uz je zabrane.")
+            continue
+
         else:
-            print("Co delas?! Hrajeme piskovorky! Zkus to znovu.")
-    return herni_pole
+            return tah(herni_pole, tvuj_tah, 'x')
+
 
 print(tah_hrace('-'*20))
 print(tah_hrace("----xx----"))
