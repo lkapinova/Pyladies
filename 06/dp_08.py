@@ -7,53 +7,51 @@
 
 import math
 
-cislo = int(input("Zadej libovolné číslo větší než 0: "))
 
 def faktorial(cislo):
+    "Vypocte faktorial zadaneho cisla."
+
     nasobek = 1
-    for i in range(1,cislo+1):
+    for i in range(1, cislo+1):
         nasobek = nasobek*i
     return nasobek
 
 
-def prvocislo(cislo):
-    if cislo == 1:
-        print("1 neni prvocislo.")
-        
-    if cislo < 10:
-        a = 0
-        for i in range (1, cislo):
-            if cislo % i == 0:
-                a = a + 1
-                if a > 1:
-                    print("{} není prvocislo.".format(cislo))
-                    break
-        if a == 1:
-            print("{} je prvocislo.".format(cislo))
+def je_prvocislo(cislo):
+    "Zjisti, zda je ci neni zadane cislo prvocislo."
 
-    if cislo > 10:
-        a = 0
-        konec_intervalu = int(math.sqrt(cislo+1))
-        for i in range (1, konec_intervalu):
-            if cislo % i == 0:
-                a = a + 1
-                if a > 1:
-                    print("{} není prvocislo.".format(cislo))
-                    break
-        if a == 1:
-            print("{} je prvocislo.".format(cislo))
+    delitele = 0
+    konec_intervalu = int(math.sqrt(cislo)+1)
+
+    for i in range(2, konec_intervalu):
+        if cislo % i == 0:
+            delitele = delitele + 1
+
+    if cislo == 2 or (cislo > 2 and delitele == 0):
+        print("{} je prvocislo".format(cislo))
+
+    else:
+        print("{} neni prvocislo".format(cislo))
+
 
 def fibonacci(pocet_clenu):
+    "Vypise zadany pocet clenu Fibonacciho posloupnosti."
+
     a = 0
     b = 1
-    for i in range(pocet_clenu):
+    print(1, end=" ")
+    for _ in range(pocet_clenu-1):
         clen = a + b
-        print(clen,end=' ')
         a = b
         b = clen
-        
+        print(clen, end=" ")
 
 
-#print(faktorial(cislo))
-#prvocislo(cislo)
+cislo = int(input("Zadej libovolné číslo větší než 0: "))
+
+print(str(cislo)+"!" + " = " + str(faktorial(cislo)))
+
+je_prvocislo(cislo)
+
+print("Prvnich " + str(cislo) + " clenu Fibonacciho posloupnosti je:", end=" ")
 fibonacci(cislo)
