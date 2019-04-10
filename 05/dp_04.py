@@ -1,12 +1,13 @@
-# Napiš funkci tah_hrace, která dostane řetězec s herním polem, 
-# zeptá se hráče, na kterou pozici chce hrát, 
-# a vrátí herní pole se zaznamenaným tahem hráče. 
-# Funkce by měla odmítnout záporná nebo příliš velká čísla a tahy na obsazená políčka. 
+# Napiš funkci tah_hrace, která dostane řetězec s herním polem,
+# zeptá se hráče, na kterou pozici chce hrát,
+# a vrátí herní pole se zaznamenaným tahem hráče.
+# Funkce by měla odmítnout záporná nebo příliš velká čísla a tahy na obsazená políčka.
 # Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
+
 
 def tah(pole, cislo_policka, symbol):
     "Vrátí herní pole s daným symbolem umístěným na danou pozici"
-    
+
     herni_pole = pole[:cislo_policka] + symbol + pole[(cislo_policka+1):]
     return herni_pole
 
@@ -29,6 +30,7 @@ def tah(pole, cislo_policka, symbol):
 #             print("Co delas?! Hrajeme piskovorky! Zkus to znovu.")
 #     return herni_pole
 
+
 def tah_hrace(herni_pole):
     "Funkce zaznamenava tah hrace do herniho pole a kontroluje vstupni data hrace."
 
@@ -37,7 +39,8 @@ def tah_hrace(herni_pole):
 
         if not tvuj_tah.isdigit():
             print("Nezadal jsi cislo.")
-        
+            continue
+
         tvuj_tah = int(tvuj_tah)
 
         if not (0 <= tvuj_tah < len(herni_pole)):
@@ -47,8 +50,9 @@ def tah_hrace(herni_pole):
             print("Smula, policko uz je zabrane.")
 
         else:
-            return tah(herni_pole, tvuj_tah, 'x')
-
+            herni_pole = tah(herni_pole, tvuj_tah, 'x')
+            break
+    return herni_pole
 
 print(tah_hrace('-'*20))
 print(tah_hrace("----xx----"))

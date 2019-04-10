@@ -20,6 +20,7 @@ def tah_hrace(herni_pole):
 
         if not tvuj_tah.isdigit():
             print("Nezadal jsi cislo.")
+            continue
 
         tvuj_tah = int(tvuj_tah)
 
@@ -30,7 +31,9 @@ def tah_hrace(herni_pole):
             print("Smula, policko uz je zabrane.")
 
         else:
-            return tah(herni_pole, tvuj_tah, 'x')
+            herni_pole = tah(herni_pole, tvuj_tah, 'x')
+            break
+    return herni_pole
 
 
 def tah_pocitace(herni_pole):
