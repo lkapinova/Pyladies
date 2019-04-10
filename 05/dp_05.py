@@ -16,8 +16,9 @@ def tah(pole, cislo_policka, symbol):
 
 def tah_pocitace(herni_pole):
     "Vrátí herní pole se zaznamenaným tahem počítače"
+    delka_pole = len(herni_pole)
     while True:
-        tah_pc = random.randint(0,19)
+        tah_pc = random.randrange(0,delka_pole)
         if herni_pole[tah_pc] == '-':
             herni_pole = tah(herni_pole, tah_pc, 'o')
             break

@@ -37,17 +37,14 @@ def tah_hrace(herni_pole):
 
         if not tvuj_tah.isdigit():
             print("Nezadal jsi cislo.")
-            continue
         
         tvuj_tah = int(tvuj_tah)
 
-        if tvuj_tah not in range(len(herni_pole)):
+        if not (0 <= tvuj_tah < len(herni_pole)):
             print("Bohuzel, netrefil ses do herniho pole.")
-            continue
 
         elif herni_pole[tvuj_tah] != '-':
             print("Smula, policko uz je zabrane.")
-            continue
 
         else:
             return tah(herni_pole, tvuj_tah, 'x')

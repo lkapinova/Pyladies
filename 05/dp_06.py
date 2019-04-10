@@ -20,17 +20,14 @@ def tah_hrace(herni_pole):
 
         if not tvuj_tah.isdigit():
             print("Nezadal jsi cislo.")
-            continue
         
         tvuj_tah = int(tvuj_tah)
 
-        if tvuj_tah not in range(len(herni_pole)):
+        if not (0 <= tvuj_tah < len(herni_pole)):
             print("Bohuzel, netrefil ses do herniho pole.")
-            continue
 
         elif herni_pole[tvuj_tah] != '-':
             print("Smula, policko uz je zabrane.")
-            continue
 
         else:
             return tah(herni_pole, tvuj_tah, 'x')
@@ -40,7 +37,7 @@ def tah_pocitace(herni_pole):
 
     delka_pole = len(herni_pole)
     while True:
-        tah_pc = random.randint(0,delka_pole)
+        tah_pc = random.randrange(0,delka_pole)
         if herni_pole[tah_pc] == '-':
             herni_pole = tah(herni_pole, tah_pc, 'o')
             break
@@ -75,7 +72,7 @@ def piskvorky1d(herni_pole):
         herni_pole = tah_pocitace(herni_pole)
         print(herni_pole)
         if vyhodnot(herni_pole) == 'o':
-            print('Smula,  vyhrava pocitac.')
+            print('Smula, vyhrava pocitac.')
             break
         elif vyhodnot(herni_pole) == '!':
             print('Je to remiza.')
