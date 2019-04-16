@@ -28,7 +28,10 @@ def porovnani_seznamu(seznam1, seznam2):
     return (spolecne_prvky, vyhradne_seznam1, vyhradne_seznam2)
 
 
-domaci_zvirata = ["pes", "kočka", "králík", "had"]
-lesni_zvirata = ["had", "zajíc", "veverka"]
+domaci_zvirata = ["pes", "kočka", "králík", "had","pták"]
+lesni_zvirata = ["had", "zajíc", "veverka","pták"]
 
-print(porovnani_seznamu(domaci_zvirata, lesni_zvirata))
+seznam1, seznam2, seznam3 = porovnani_seznamu(domaci_zvirata, lesni_zvirata)
+print("V obou seznamech jsou uvedena následující zvířata: " + str(seznam1))
+print("Pouze v seznamu domácích zvířat jsou uvedena zvířata: " + str(seznam2))
+print("Pouze v seznamu lesních zvířat jsou uvedena zvířata: " + str(seznam3))

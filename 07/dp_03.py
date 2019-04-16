@@ -11,5 +11,5 @@ def pocatecni_pismeno_k(seznam):
     return pocatecni_pismeno_k
 
 
-zvirata = ["pes", "papoušek", "kočka", "rybka", "králík", "had", "12345"]
-print(pocatecni_pismeno_k(zvirata))
+domaci_zvirata = ["pes", "kočka", "králík", "had"]
+print(pocatecni_pismeno_k(domaci_zvirata))

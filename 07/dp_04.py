@@ -1,5 +1,5 @@
 # Napiš program, který seřadí seznam domácích zvířat podle abecedy.
 
-zvirata = ["pes", "papoušek", "kočka", "rybka", "králík", "had", "mravenec", "albatros"]
-zvirata.sort()
-print(zvirata)
+domaci_zvirata = ["pes", "kočka", "králík", "had"]
+domaci_zvirata.sort()
+print(domaci_zvirata)

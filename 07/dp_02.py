@@ -10,5 +10,5 @@ def kratka_slova(seznam):
     return kratka_slova
 
 
-zvirata = ["pes", "papoušek", "kočička", "rybka", "králíček", "had"]
-print(kratka_slova(zvirata))
+domaci_zvirata = ["pes", "kočka", "králík", "had"]
+print(kratka_slova(domaci_zvirata))
