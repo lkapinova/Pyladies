@@ -1,28 +1,24 @@
 # Napiš funkci, která převede římské číslice na číslo (int).
 
-M = 1000
-CM = 900
-D = 500
-CD = 400
-C = 100
-XC = 90
-L = 50
-XL = 40
-X = 10
-IX = 9
-V = 5
-IV = 4
-I = 1
+rimska_soust_dvojice = ['CM', 'CD', 'XC', 'XL', 'IX', 'IV']
+arabska_soust_dvojice = [900, 400, 90, 40, 9, 4]
+rimska_soust = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
+arabska_soust = [1000, 500, 100, 50, 10, 5, 1]
 
-rimska_soustava = ['M','CM','D','CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
-arabska_soustava = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
 
-rimske_cislo = list("MCMLXXXII")
-arabske_cislo = 0
-print(rimske_cislo)
+def prevod_rimskych_cisel(rimske_cislo):
+    cislo1 = 0
+    cislo2 = 0
 
-for i in rimske_cislo:
-    if i == "M":
-        arabske_cislo = arabske_cislo + M
+    for i, j in zip(rimska_soust_dvojice, arabska_soust_dvojice):
+        if i in rimske_cislo:
+            cislo1 += j
+            a = rimske_cislo.index(i)
+            rimske_cislo = rimske_cislo[:a] + rimske_cislo[(a+2):]
 
-print(arabske_cislo)
+    for i, j in zip(rimska_soust, arabska_soust):
+        cislo2 += rimske_cislo.count(i)*j
+
+    return (cislo1+cislo2)
+
+print(prevod_rimskych_cisel("MCMLXXXII"))
