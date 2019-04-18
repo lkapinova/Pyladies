@@ -2,6 +2,8 @@
 
 
 def prevod_rimskych_cisel(rimske_cislo):
+        # Prevadi rimska cisla na arabska.
+
     rimska_soust_dvojice = ['CM', 'CD', 'XC', 'XL', 'IX', 'IV']
     arabska_soust_dvojice = [900, 400, 90, 40, 9, 4]
     rimska_soust = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
