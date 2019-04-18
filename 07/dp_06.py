@@ -21,4 +21,7 @@ def prevod_rimskych_cisel(rimske_cislo):
 
     return (cislo1+cislo2)
 
-print(prevod_rimskych_cisel("MCMLXXXII"))
+print(prevod_rimskych_cisel("MCMLXXXII"))       # 1982
+print(prevod_rimskych_cisel("MMXIX"))           # 2019 
+print(prevod_rimskych_cisel("MDCCLXIII"))       # 1763
+print(prevod_rimskych_cisel("MCMXL"))           # 1940
