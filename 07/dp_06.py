@@ -11,14 +11,13 @@ def prevod_rimskych_cisel(rimske_cislo):
     cislo1 = 0
     cislo2 = 0
 
-    for i, j in zip(rimska_soust_dvojice, arabska_soust_dvojice):
+    for i in rimska_soust_dvojice:
         if i in rimske_cislo:
-            cislo1 += j
-            a = rimske_cislo.index(i)
-            rimske_cislo = rimske_cislo[:a] + rimske_cislo[(a+2):]
+            cislo1 += arabska_soust_dvojice[rimska_soust_dvojice.index(i)]
+            rimske_cislo = rimske_cislo[:rimske_cislo.index(i)] + rimske_cislo[(rimske_cislo.index(i)+2):]
 
-    for i, j in zip(rimska_soust, arabska_soust):
-        cislo2 += rimske_cislo.count(i)*j
+    for i in rimska_soust:
+        cislo2 += rimske_cislo.count(i)*arabska_soust[rimska_soust.index(i)]
 
     return (cislo1+cislo2)
 

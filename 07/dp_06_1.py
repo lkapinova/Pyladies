@@ -10,15 +10,12 @@ def prevod_rimskych_cisel(rimske_cislo):
     arabske_cislo = 0
 
     while len(rimske_cislo) != 0:
-        for i, j in zip(rimska_soustava, arabska_soustava):
+        for i in rimska_soustava:
             if rimske_cislo.startswith(i):
-                arabske_cislo += j
-                if len(i) == 2:
-                    rimske_cislo = rimske_cislo[2:]
-                    break
-                else:
-                    rimske_cislo = rimske_cislo[1:]
-                    break
+                arabske_cislo = arabske_cislo + \
+                    arabska_soustava[rimska_soustava.index(i)]
+                rimske_cislo = rimske_cislo[len(i):]
+                break
 
     return arabske_cislo
 
