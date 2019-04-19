@@ -18,18 +18,19 @@
 
 def seradit_podle_2pismene(seznam):
 
-    seznam = []
     seznam_dvojic = []
-    for zvire in domaci_zvirata:
+    novy_seznam = []
+
+    for zvire in seznam:
         dvojice = (zvire[1], zvire)
         seznam_dvojic.append(dvojice)
 
     seznam_dvojic.sort()
 
     for dvojice in seznam_dvojic:
-        seznam.append(dvojice[1])
+        novy_seznam.append(dvojice[1])
 
-    return seznam
+    return novy_seznam
 
 
 domaci_zvirata = ["pes", "kočka", "králík", "had", "andulka"]

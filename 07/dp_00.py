@@ -6,12 +6,12 @@
 
 
 def najdi_v_seznamu(seznam, slovo):
-    print(slovo in seznam)
+    return (slovo in seznam)
 
 
 domaci_zvirata = ["pes", "kočka", "králík", "had"]
 
-najdi_v_seznamu(domaci_zvirata, 'pes')
-najdi_v_seznamu(domaci_zvirata, 'liska')
-najdi_v_seznamu(domaci_zvirata, 'kocka')
-najdi_v_seznamu(domaci_zvirata, 'kočka')
+print(najdi_v_seznamu(domaci_zvirata, 'pes'))
+print(najdi_v_seznamu(domaci_zvirata, 'liska'))
+print(najdi_v_seznamu(domaci_zvirata, 'kocka'))
+print(najdi_v_seznamu(domaci_zvirata, 'kočka'))
