@@ -8,18 +8,18 @@ def prevod_rimskych_cisel(rimske_cislo):
     arabska_soust_dvojice = [900, 400, 90, 40, 9, 4]
     rimska_soust = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
     arabska_soust = [1000, 500, 100, 50, 10, 5, 1]
-    cislo1 = 0
-    cislo2 = 0
+    vysledek = 0
+    
 
     for i in rimska_soust_dvojice:
         if i in rimske_cislo:
-            cislo1 += arabska_soust_dvojice[rimska_soust_dvojice.index(i)]
+            vysledek += arabska_soust_dvojice[rimska_soust_dvojice.index(i)]
             rimske_cislo = rimske_cislo[:rimske_cislo.index(i)] + rimske_cislo[(rimske_cislo.index(i)+2):]
 
     for i in rimska_soust:
-        cislo2 += rimske_cislo.count(i)*arabska_soust[rimska_soust.index(i)]
+        vysledek += rimske_cislo.count(i)*arabska_soust[rimska_soust.index(i)]
 
-    return (cislo1+cislo2)
+    return vysledek
 
 
 print(prevod_rimskych_cisel("MCMLXXXII"))       # 1982
