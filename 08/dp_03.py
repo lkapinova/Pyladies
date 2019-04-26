@@ -12,8 +12,11 @@ def pocet_znaku(string):
     pocty_znaku = {}
 
     for i in string:
-        pocet = string.count(i)
-        pocty_znaku[i] = pocet
+        if i in pocty_znaku.keys():
+            continue
+        else:
+            pocet = string.count(i)
+            pocty_znaku[i] = pocet
         
     return pocty_znaku
 
