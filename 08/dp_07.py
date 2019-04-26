@@ -26,9 +26,8 @@ def pohyb(seznam_souradnic, svetova_strana):
     """Funkce ze seznamu souřadnic a světové strany (zadané jako: "s", "j", "v" nebo "z")
      a přidá k seznamu souřadnice bodu posunutý v zadaném směru."""
 
-    for i in seznam_souradnic:
-        x = i[0]
-        y = i[1]
+    x = seznam_souradnic[-1][0]
+    y = seznam_souradnic[-1][1]
 
     if svetova_strana == 's':
         y -= 1
