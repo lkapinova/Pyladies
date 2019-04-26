@@ -8,6 +8,9 @@
 * 04 While & Vlastni funkce
 * 05 Retezce
 * 06 Procvicovani a soubory
+* 07 Seznamy
+* 08 Slovníky
+* 09 Výjimky, moduly & testování 
 
 
 # Odkazy:
