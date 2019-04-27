@@ -12,7 +12,7 @@ def pocet_znaku(string):
     pocty_znaku = {}
 
     for i in string:
-        if i in pocty_znaku.keys():
+        if i in pocty_znaku:
             continue
         else:
             pocet = string.count(i)
