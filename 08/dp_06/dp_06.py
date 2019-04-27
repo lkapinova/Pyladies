@@ -35,12 +35,12 @@ def pohyb(seznam_souradnic, svetova_strana):
     seznam_souradnic.append(nove_souradnice)
 
 
-souradnice = [(0, 0)]
-pohyb(souradnice, 'v')
-print(souradnice)         # → [(0, 0), (1, 0)]
-pohyb(souradnice, 'v')
-print(souradnice)         # → [(0, 0), (1, 0), (2, 0)]
-pohyb(souradnice, 'j')
-print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1)]
-pohyb(souradnice, 's')
-print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1), (2, 0)]
+# souradnice = [(0, 0)]
+# pohyb(souradnice, 'v')
+# print(souradnice)         # → [(0, 0), (1, 0)]
+# pohyb(souradnice, 'v')
+# print(souradnice)         # → [(0, 0), (1, 0), (2, 0)]
+# pohyb(souradnice, 'j')
+# print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1)]
+# pohyb(souradnice, 's')
+# print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1), (2, 0)]
