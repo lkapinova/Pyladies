@@ -32,12 +32,12 @@ def nakresli_mapu(rozmer, souradnice_hada, souradnice_ovoce):
     print()
 
 
-def pohyb(seznam_souradnic, svetova_strana):
+def pohyb(souradnice_hada, svetova_strana, souradnice_ovoce):
     """Funkce ze seznamu souřadnic a světové strany (zadané jako: "s", "j", "v" nebo "z")
      a přidá k seznamu souřadnice bodu posunutý v zadaném směru."""
 
-    x = seznam_souradnic[-1][0]
-    y = seznam_souradnic[-1][1]
+    x = souradnice_hada[-1][0]
+    y = souradnice_hada[-1][1]
 
     if svetova_strana == 's':
         y -= 1
@@ -52,30 +52,16 @@ def pohyb(seznam_souradnic, svetova_strana):
     for i in nove_souradnice:
         if i < 0 or i > 9:
             raise ValueError('Game over')
-    if nove_souradnice in seznam_souradnic:
+
+    if nove_souradnice in souradnice_hada:
         raise ValueError('Game over')
 
-    del seznam_souradnic[0]
-    seznam_souradnic.append(nove_souradnice)
-
-
-def pohyb_po_ovoci(seznam_souradnic, svetova_strana):
-    """Funkce ze seznamu souřadnic a světové strany (zadané jako: "s", "j", "v" nebo "z")
-     a přidá k seznamu souřadnice bodu posunutý v zadaném směru."""
-
-    x = seznam_souradnic[-1][0]
-    y = seznam_souradnic[-1][1]
-
-    if svetova_strana == 's':
-        y -= 1
-    elif svetova_strana == 'j':
-        y += 1
-    elif svetova_strana == 'v':
-        x += 1
-    elif svetova_strana == 'z':
-        x -= 1
-    nove_souradnice = (x, y)
-    seznam_souradnic.append(nove_souradnice)
+    if nove_souradnice in souradnice_ovoce:
+        souradnice_ovoce.remove(nove_souradnice)
+    else:
+        del souradnice_hada[0]
+    
+    souradnice_hada.append(nove_souradnice)
 
 
 def pridej_ovoce(rozmer_mapy, souradnice_hada, souradnice_ovoce):
@@ -94,7 +80,9 @@ rozmer_mapy = 10
 had = [(0, 0), (1, 0), (2, 0)]
 svetove_strany = ['s', 'j', 'z', 'v']
 ovoce = []
+pocet_tahu = 1
 
+pridej_ovoce(rozmer_mapy, had, ovoce)
 
 while True:
     svetova_strana = input(
@@ -105,6 +93,11 @@ while True:
         print("Nezadal jsi svetovou stranu správně. Zkus to znovu.")
         continue
     else:
-        pridej_ovoce(rozmer_mapy, had, ovoce)
-        pohyb(had, svetova_strana)
+        pohyb(had, svetova_strana, ovoce)
+
+
         nakresli_mapu(rozmer_mapy, had, ovoce)
+        pocet_tahu += 1
+
+        if pocet_tahu == 30:
+            pridej_ovoce
