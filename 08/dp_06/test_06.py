@@ -1,22 +1,30 @@
 import pytest
 from dp_06 import pohyb
 
-def test_pohyb():
-    pohyb([(0, 0), (1, 0)], 'v')
-    # assert len(seznam_souradnic) == 3
-    assert nove_souradnice == (2, 0)
 
-def test_pohyb():
-    pohyb([(0, 0), (1, 0), (2, 0)], 'z')
-    # assert len(seznam_souradnic) == 4
-    assert nove_souradnice == (1, 0)
+def test_v_pohyb():
+    souradnice = [(1, 1)]
+    pohyb(souradnice, 'j')
+    assert len(souradnice) == 2
+    assert souradnice[-1] == (1, 2)
 
-def test_pohyb():
-    pohyb([(0, 0), (1, 1), (2, 1), (2, 2)], 's')
-    # assert len(seznam_souradnic) == 5
-    assert nove_souradnice == (2, 1)
 
-def test_pohyb():
-    pohyb([(1, 1)], 'j')
-    # assert len(seznam_souradnic) == 2
-    assert nove_souradnice == (1, 2)
+def test_z_pohyb():
+    souradnice = [(0, 0), (1, 0), (2, 0)]
+    pohyb(souradnice, 'z')
+    assert len(souradnice) == 4
+    assert souradnice[-1] == (1, 0)
+
+
+def test_s_pohyb():
+    souradnice = [(0, 0), (1, 1), (2, 1), (2, 2)]
+    pohyb(souradnice, 's')
+    assert len(souradnice) == 5
+    assert souradnice[-1] == (2, 1)
+
+
+def test_j_pohyb():
+    souradnice = [(1, 1)]
+    pohyb(souradnice, 'j')
+    assert len(souradnice) == 2
+    assert souradnice[-1] == (1, 2)
