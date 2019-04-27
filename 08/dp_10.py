@@ -21,7 +21,7 @@ def nakresli_mapu(rozmer, souradnice_hada, souradnice_ovoce):
 
     for i in souradnice_hada:
         mapa[i[1]][i[0]] = 'x'
-    
+
     for i in souradnice_ovoce:
         mapa[i[1]][i[0]] = '?'
 
@@ -60,7 +60,7 @@ def pohyb(souradnice_hada, svetova_strana, souradnice_ovoce):
         souradnice_ovoce.remove(nove_souradnice)
     else:
         del souradnice_hada[0]
-    
+
     souradnice_hada.append(nove_souradnice)
 
 
@@ -80,24 +80,26 @@ rozmer_mapy = 10
 had = [(0, 0), (1, 0), (2, 0)]
 svetove_strany = ['s', 'j', 'z', 'v']
 ovoce = []
-pocet_tahu = 1
+pocet_tahu = 0
 
 pridej_ovoce(rozmer_mapy, had, ovoce)
 
 while True:
     svetova_strana = input(
         "Zadej světovou stranu (s,j,v,z). Pokud už nechceš pokračovat, napiš exit.: ")
+
     if svetova_strana == 'exit':
         break
-    elif svetova_strana not in svetove_strany:
+
+    if svetova_strana not in svetove_strany:
         print("Nezadal jsi svetovou stranu správně. Zkus to znovu.")
         continue
-    else:
-        pohyb(had, svetova_strana, ovoce)
-
-
-        nakresli_mapu(rozmer_mapy, had, ovoce)
-        pocet_tahu += 1
-
-        if pocet_tahu == 30:
-            pridej_ovoce
+    
+    pohyb(had, svetova_strana, ovoce)
+    nakresli_mapu(rozmer_mapy, had, ovoce)
+    pocet_tahu += 1
+    if len(ovoce) == 0:
+        pridej_ovoce(rozmer_mapy, had, ovoce)
+    if pocet_tahu == 30:
+        pridej_ovoce(rozmer_mapy, had, ovoce)
+        pocet_tahu = 0
