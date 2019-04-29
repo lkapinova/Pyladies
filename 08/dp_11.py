@@ -1,12 +1,4 @@
-# Přidej do hry hadí potravu. Tady jsou pravidla pro vegetariánského hada, ale můžeš si je změnit podle chuti:
-
-# Seznam ovoce obsahuje na začátku jedno ovoce na políčku,
-# na kterém není had (například: [(2, 3)] znamená jedno ovoce na pozici (2, 3)).
-# Když had sežere ovoce, vyroste („nesmaže“ se mu ocas, tedy neprovede se to, cos přidala v projektu 13),
-# a pokud na mapě zrovna není další ovoce, na náhodném místě (kde není had) vyroste ovoce nové.
-
-# Každých 30 tahů vyroste nové ovoce samo od sebe.
-# Na mapě se toto tajemné ovoce zobrazuje jako otazník (?).
+# Hadí hřiště může mít libovolné rozměry větší než 4×1. Třeba 20×20 nebo 10×30.
 
 import random
 
@@ -15,9 +7,12 @@ def nakresli_mapu(rozmer, souradnice_hada, souradnice_ovoce):
     """Funkce nakreslí čtvercovou mřížku zadaného rozměru.
     Na příslušná políčka uvedená v seznamu_souradnic doplní křížek."""
 
+    x = rozmer[0]
+    y = rozmer[1]
+
     mapa = []
-    for _ in range(rozmer):
-        mapa.append(['.'] * rozmer)
+    for _ in range(y):
+        mapa.append(['.'] * x)
 
     for i in souradnice_hada:
         mapa[i[1]][i[0]] = 'x'
@@ -49,8 +44,8 @@ def pohyb(rozmer_mapy, souradnice_hada, svetova_strana, souradnice_ovoce, pocet_
         x -= 1
     nove_souradnice = (x, y)
 
-    for i in nove_souradnice:
-        if i < 0 or i > (rozmer_mapy - 1):
+    for i in range(2):
+        if nove_souradnice[i] < 0 or nove_souradnice[i] > (rozmer_mapy[i]-1):
             print('Hrál jsi ' + str(pocet_tahu) + ' tahů.')
             raise ValueError('Game over')
 
@@ -69,8 +64,8 @@ def pohyb(rozmer_mapy, souradnice_hada, svetova_strana, souradnice_ovoce, pocet_
 def pridej_ovoce(rozmer_mapy, souradnice_hada, souradnice_ovoce):
 
     while True:
-        x = random.randrange(rozmer_mapy)
-        y = random.randrange(rozmer_mapy)
+        x = random.randrange(rozmer_mapy[0])
+        y = random.randrange(rozmer_mapy[1])
         nove_ovoce = (x, y)
 
         if nove_ovoce not in souradnice_hada and nove_ovoce not in souradnice_ovoce:
@@ -78,7 +73,7 @@ def pridej_ovoce(rozmer_mapy, souradnice_hada, souradnice_ovoce):
             break
 
 
-rozmer_mapy = 4
+rozmer_mapy = (3,4)
 had = [(0, 0), (1, 0), (2, 0)]
 svetove_strany = ['s', 'j', 'z', 'v']
 ovoce = []
