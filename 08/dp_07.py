@@ -49,11 +49,13 @@ svetove_strany = ['s', 'j', 'z', 'v']
 while True:
     svetova_strana = input(
         "Zadej světovou stranu (s,j,v,z). Pokud už nechceš pokračovat, napiš exit.: ")
+
     if svetova_strana == 'exit':
         break
-    elif svetova_strana not in svetove_strany:
+
+    if svetova_strana not in svetove_strany:
         print("Nezadal jsi svetovou stranu správně. Zkus to znovu.")
         continue
-    else:
-        pohyb(seznam, svetova_strana)
-        nakresli_mapu(rozmer_mapy, seznam)
+
+    pohyb(seznam, svetova_strana)
+    nakresli_mapu(rozmer_mapy, seznam)
