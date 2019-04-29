@@ -32,7 +32,7 @@ def nakresli_mapu(rozmer, souradnice_hada, souradnice_ovoce):
     print()
 
 
-def pohyb(souradnice_hada, svetova_strana, souradnice_ovoce):
+def pohyb(souradnice_hada, svetova_strana, souradnice_ovoce, pocet_tahu):
     """Funkce ze seznamu souřadnic a světové strany (zadané jako: "s", "j", "v" nebo "z")
      a přidá k seznamu souřadnice bodu posunutý v zadaném směru."""
 
@@ -50,10 +50,12 @@ def pohyb(souradnice_hada, svetova_strana, souradnice_ovoce):
     nove_souradnice = (x, y)
 
     for i in nove_souradnice:
-        if i < 0 or i > 9:
+        if i < 0 or i > (rozmer_mapy - 1):
+            print('Hrál jsi ' + str(pocet_tahu) + ' tahů.')
             raise ValueError('Game over')
 
     if nove_souradnice in souradnice_hada:
+        print('Hrál jsi ' + str(pocet_tahu) + ' tahů.')
         raise ValueError('Game over')
 
     if nove_souradnice in souradnice_ovoce:
@@ -71,12 +73,12 @@ def pridej_ovoce(rozmer_mapy, souradnice_hada, souradnice_ovoce):
         y = random.randrange(rozmer_mapy)
         nove_ovoce = (x, y)
 
-        if nove_ovoce not in souradnice_hada:
+        if nove_ovoce not in souradnice_hada and nove_ovoce not in souradnice_ovoce:
             souradnice_ovoce.append(nove_ovoce)
             break
 
 
-rozmer_mapy = 10
+rozmer_mapy = 4
 had = [(0, 0), (1, 0), (2, 0)]
 svetove_strany = ['s', 'j', 'z', 'v']
 ovoce = []
@@ -89,17 +91,20 @@ while True:
         "Zadej světovou stranu (s,j,v,z). Pokud už nechceš pokračovat, napiš exit.: ")
 
     if svetova_strana == 'exit':
+        print('Hrál jsi ' + str(pocet_tahu) + ' tahů.')
         break
 
     if svetova_strana not in svetove_strany:
         print("Nezadal jsi svetovou stranu správně. Zkus to znovu.")
         continue
-    
-    pohyb(had, svetova_strana, ovoce)
-    nakresli_mapu(rozmer_mapy, had, ovoce)
-    pocet_tahu += 1
+
+    pohyb(had, svetova_strana, ovoce, pocet_tahu)
+
     if len(ovoce) == 0:
         pridej_ovoce(rozmer_mapy, had, ovoce)
-    if pocet_tahu == 30:
+
+    nakresli_mapu(rozmer_mapy, had, ovoce)
+
+    pocet_tahu += 1
+    if pocet_tahu % 30 == 0:
         pridej_ovoce(rozmer_mapy, had, ovoce)
-        pocet_tahu = 0
