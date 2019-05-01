@@ -44,11 +44,6 @@ def test_tah_pocitace_strategie():
 def test_tah_pocitace_random():
     assert tah_pocitace('oxxoxo-xoxo') == 'oxxoxooxoxo'
 
-def test_tah_pocitace_plne_pole():
-    try:
-        assert tah_pocitace('xoxoxoxo')
-    except ValueError:
-        assert True
 
 def test_vyhodnot():
     assert vyhodnot("oxxxo") == 'x'
