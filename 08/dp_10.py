@@ -66,7 +66,13 @@ def pohyb(rozmer_mapy, souradnice_hada, svetova_strana, souradnice_ovoce, pocet_
     souradnice_hada.append(nove_souradnice)
 
 
-def pridej_ovoce(rozmer_mapy, souradnice_hada, souradnice_ovoce):
+def pridej_ovoce(rozmer_mapy, souradnice_hada, souradnice_ovoce, pocet_tahu):
+
+    if len(ovoce) != 0 and pocet_tahu % 30 != 0:
+        return
+
+    if pocet_prazdnych_policek(rozmer_mapy, souradnice_hada, souradnice_ovoce) == 0:
+        return
 
     while True:
         x = random.randrange(rozmer_mapy)
@@ -78,15 +84,32 @@ def pridej_ovoce(rozmer_mapy, souradnice_hada, souradnice_ovoce):
             break
 
 
-rozmer_mapy = 4
+def pocet_prazdnych_policek(rozmer_mapy, souradnice_hada, souradnice_ovoce):
+    pocet_policek_mapy = rozmer_mapy**2
+    pocet_plnych_policek = len(souradnice_hada) + len(souradnice_ovoce)
+    return (pocet_policek_mapy - pocet_plnych_policek)
+
+
+rozmer_mapy = 10
 had = [(0, 0), (1, 0), (2, 0)]
 svetove_strany = ['s', 'j', 'z', 'v']
 ovoce = []
 pocet_tahu = 0
 
-pridej_ovoce(rozmer_mapy, had, ovoce)
+pridej_ovoce(rozmer_mapy, had, ovoce, pocet_tahu)
+
 
 while True:
+
+    pocet_tahu += 1
+
+    nakresli_mapu(rozmer_mapy, had, ovoce)
+
+    # hrac vyhraje, kdyz had zabira celou mapu
+    if rozmer_mapy**2 == len(had):
+        print('Gratuluji! Hrál jsi ' + str(pocet_tahu) + ' tahů.')
+        break
+
     svetova_strana = input(
         "Zadej světovou stranu (s,j,v,z). Pokud už nechceš pokračovat, napiš exit.: ")
 
@@ -99,12 +122,4 @@ while True:
         continue
 
     pohyb(rozmer_mapy, had, svetova_strana, ovoce, pocet_tahu)
-
-    if len(ovoce) == 0:
-        pridej_ovoce(rozmer_mapy, had, ovoce)
-
-    nakresli_mapu(rozmer_mapy, had, ovoce)
-
-    pocet_tahu += 1
-    if pocet_tahu % 30 == 0:
-        pridej_ovoce(rozmer_mapy, had, ovoce)
+    pridej_ovoce(rozmer_mapy, had, ovoce, pocet_tahu)
