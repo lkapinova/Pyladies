@@ -14,3 +14,13 @@ def test_tah_mimo_pole():
     except ValueError:
         assert True
 
+def test_tah_zaporna_pozice():
+    try:
+        assert tah(10*'-',-2,'x')
+    except ValueError:
+        assert True    
+
+
+def test_tah_pocitace_strategie():
+    assert tah_pocitace('------o-o-') == '------ooo-'
+
