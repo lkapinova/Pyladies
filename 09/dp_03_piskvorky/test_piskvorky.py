@@ -52,6 +52,10 @@ def test_tah_pocitace_strategie():
 def test_tah_pocitace_random():
     assert tah_pocitace('oxxoxo-xoxo','x','o') == 'oxxoxoxxoxo'
 
+def test_tah_pocitac_delka_pole():
+    assert tah_pocitace('-----oxxoxo-o--xoxo-----','x','o') == '-----oxxoxoxo--xoxo-----'
+    assert tah_pocitace('xo-o--xo','x','o') == 'xoxo--xo'
+
 def test_vyhodnot():
     assert vyhodnot("oxxxo") == 'x'
     assert vyhodnot("oxxoooxo") == 'o'
