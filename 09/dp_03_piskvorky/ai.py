@@ -4,6 +4,12 @@ from util import tah
 def tah_pocitace(herni_pole, pc_symbol, symbol_hrac):
     "Vrátí herní pole se zaznamenaným tahem počítače"
 
+    if herni_pole == '':
+        raise ValueError('Pole nemůže být prázdné')
+    
+    if '-' not in herni_pole:
+        raise ValueError ('Alespoň jedno políčko v herním poli musí být volné.')
+
     if (pc_symbol+"-"+pc_symbol) in herni_pole:
         policko = herni_pole.find(pc_symbol+"-"+pc_symbol)
         herni_pole = tah(herni_pole, (policko+1), pc_symbol)
