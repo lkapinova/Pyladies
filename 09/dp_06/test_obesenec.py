@@ -37,3 +37,12 @@ def test_dopln_pismeno_prazdny_retezec():
     except AssertionError:
         return True
 
+def test_vyhodnoceni():
+    assert vyhodnoceni("hotovo",7) == True
+    assert vyhodnoceni("---a-e-o-", 10) == False
+    assert vyhodnoceni("",0) == True
+    
+
+    
+
+
