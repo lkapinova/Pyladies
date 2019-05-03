@@ -41,8 +41,6 @@ def hrat_obesence(hledane_slovo):
 
         if pismeno in hledane_slovo:
             slovo = dopln_pismeno(slovo, pismeno, hledane_slovo.index(pismeno))
-            continue
         else:
             spatny_tip += 1
             print(nakresli_obesence(spatny_tip))
-            continue
