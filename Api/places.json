@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Roadway Cafe & Beer",
+        "street": "144/15B Phan Văn Hân",
+        "district": "Phường 17, Bình Thạnh",
+        "city": "Hồ Chí Minh",
+        "country": "Vietnam"
+    },
+    {
+        "name": "Kuma Sushi + Sake",
+        "street": "1040 Polk St",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 94109,
+        "country": "USA"
+    },
+    {
+        "name": "Madam Podprsenka",
+        "street": "Hybešova 437/46",
+        "district": "Brno-střed",
+        "city": "Brno",
+        "zip": 60200,
+        "country": "Česká republika"
+    }
+]
