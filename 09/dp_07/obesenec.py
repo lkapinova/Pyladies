@@ -1,0 +1,64 @@
+from obrazek import nakresli_obesence
+
+
+def slovo_to_string(hledane_slovo):
+    return '-'*len(hledane_slovo)
+
+
+def dopln_pismeno(slovo, pismeno, pozice):
+    return slovo[:pozice] + pismeno + slovo[(pozice+1):]
+
+
+def vyhodnoceni(slovo, spatny_tip):
+    if '-' not in slovo:
+        return True
+    if spatny_tip == 10:
+        return False
+
+
+def input_kontrola(input):
+    povolene_znaky = ["a", "á", "b", "c", "č", "d", "ď", "e", "é", "ě", "f", "g", "h", "ch", "i", "í", "j", "k", "l",
+                      "m", "n", "ň", "o", "ó", "p", "q", "r", "ř", "s", "š", "t", "ť", "u", "ú", "ů", "v", "w", "x", "y", "ý", "z", "ž"]
+    if input not in povolene_znaky:
+        return False
+
+
+def hrat_obesence(hledane_slovo):
+
+    slovo = slovo_to_string(hledane_slovo)
+    spatny_tip = 0
+    print("Hledáme české slovo (i s interpunkcí).")
+
+    while True:
+
+        print(slovo)
+
+        # hrac vyhral, pokud ve slove neni zadna pomlcka, viz. funkce vyhodnoceni
+        if vyhodnoceni(slovo, spatny_tip) == True:
+            print("Gratuluji! Slovo jsi nasel.")
+            break
+
+        # hrac prohrava, pokud 10x netipnul spravne pismeno, viz. funkce vyhodnoceni
+        if vyhodnoceni(slovo, spatny_tip) == False:
+            print("Smůla. Zkus to znovu.")
+            print("Hledané slovo je "+hledane_slovo)
+            break
+
+        pismeno = input("Zkus si tipnout, jaké je v něm písmeno: ")
+        if input_kontrola(pismeno) == False:
+            print("Nezadal jsi písmeno. Zkus to znovu.")
+            continue
+
+        pocet = hledane_slovo.count(pismeno)
+
+        if pocet == 0:
+            spatny_tip += 1
+            print(nakresli_obesence(spatny_tip))
+        elif pocet == 1:
+            slovo = dopln_pismeno(slovo, pismeno, hledane_slovo.index(pismeno))
+        else:
+            pozice = 0
+            for _ in range(pocet):
+                pozice = hledane_slovo.index(pismeno, pozice)
+                slovo = dopln_pismeno(slovo, pismeno, pozice)
+                pozice += 1
