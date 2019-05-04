@@ -18,3 +18,5 @@
 * retezce - specialni znaky:
 * https://linuxconfig.org/list-of-python-escape-sequence-characters-with-examples
 * https://unicode-table.com/en/#0696
+* https://cojeapi.readthedocs.io/cs/latest/
+* API - github/honzajavorek - materialy
