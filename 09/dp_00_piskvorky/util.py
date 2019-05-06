@@ -3,3 +3,6 @@ def tah(pole, cislo_policka, symbol):
 
     herni_pole = pole[:cislo_policka] + symbol + pole[(cislo_policka+1):]
     return herni_pole
+
+
+print(tah(10*'-',-12, 'x'))

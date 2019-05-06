@@ -61,3 +61,4 @@ def piskvorky1d(herni_pole):
         elif vyhodnot(herni_pole) == '!':
             print('Je to remiza.')
             break
+

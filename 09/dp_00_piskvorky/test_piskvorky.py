@@ -10,27 +10,6 @@ def test_tah():
     assert tah(10*'-', 9, 'x') == '---------x'
 
 
-def test_tah_mimo_pole():
-    try:
-        assert tah(10*'-', 10, 'x')
-    except ValueError:
-        assert True
-
-
-def test_tah_zaporna_pozice():
-    try:
-        assert tah(10*'-', -2, 'x')
-    except ValueError:
-        assert True
-
-
-def test_tah_plne_pole():
-    try:
-        assert tah('xoxoxoxo', 3, 'x')
-    except ValueError:
-        assert True
-
-
 def test_tah_pocitace_strategie():
     assert tah_pocitace('------o-o-') == '------ooo-'
     assert tah_pocitace('----x-oox-') == '----xooox-'
@@ -50,10 +29,3 @@ def test_vyhodnot():
     assert vyhodnot("oxxoooxo") == 'o'
     assert vyhodnot("oxxoxo") == '!'
     assert vyhodnot("ox-oxo") == '-'
-
-
-def test_vyhodnot_nesmysl():
-    try:
-        assert vyhodnot('kkkrkrkkr')
-    except ValueError:
-        assert True
