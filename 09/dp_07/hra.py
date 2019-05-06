@@ -10,7 +10,6 @@ while True:
 
     if nova_hra == "ano":
 
-        random.shuffle(slova)
         hledane_slovo = random.choice(slova)
         hrat_obesence(hledane_slovo)
 
