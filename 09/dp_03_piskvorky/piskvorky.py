@@ -9,7 +9,7 @@ def tah_hrace(herni_pole, symbol_hrac):
         
         tvuj_tah = input("Kam chces umistit svuj symbol? ")
 
-        if not tvuj_tah.isdigit():
+        if not tvuj_tah.lstrip('-').isdigit():
             print("Nezadal jsi cislo.")
             continue
 

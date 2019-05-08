@@ -2,13 +2,14 @@ from dp_02 import tah, tah_hrace
 import pytest
 
 def test_tah_hrace():
-    tah(10*'-', 7, 'x') == '-------x--'
-    tah(10*'-', 0, 'o') == 'o---------'
-    tah(10*'-', 9, 'j') == '---------j'
-    tah(10*'-', -3, 'x') == '----------'
-    tah(10*'-', 12, 'x') == '----------'
-    tah(10*'-', 12, 'x') == '----------'
-    
+    tah_hrace(10*'-', 'x', '7') == '-------x--'
+    tah_hrace(10*'-', 'o', '0') == 'o---------'
+    tah_hrace(10*'-', 'j', '9') == '---------j'
+    tah_hrace(10*'-', 'x', '-3') == '----------'
+    tah_hrace(10*'-', 'x', '12') == '----------'
+    tah_hrace('---------j', 'x', '9') == '---------j'
+
+def test_tah_hrace_TypeError():    
     with pytest.raises(TypeError):
-        tah(10*' ', 'j', 'x')
+        tah_hrace(10*'-', 'j', 'x')
 

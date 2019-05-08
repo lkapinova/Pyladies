@@ -8,7 +8,7 @@ def tah(pole, cislo_policka, symbol):
 def tah_hrace(herni_pole, symbol_hrac, tvuj_tah):
     "Funkce zaznamenava tah hrace do herniho pole a kontroluje vstupni data hrace."
 
-    if not tvuj_tah.isdigit():
+    if not tvuj_tah.lstrip('-').isdigit():
         raise TypeError("Nezadal jsi cislo.")
         
     tvuj_tah = int(tvuj_tah)
