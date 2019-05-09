@@ -25,9 +25,9 @@ def vyhodnoceni(slovo, spatny_tip):
 
 
 def input_kontrola(input):
-    povolene_znaky = ["a", "á", "b", "c", "č", "d", "ď", "e", "é", "ě", "f", "g", "h", "ch", "i", "í", "j", "k", "l",
-                      "m", "n", "ň", "o", "ó", "p", "q", "r", "ř", "s", "š", "t", "ť", "u", "ú", "ů", "v", "w", "x", "y", "ý", "z", "ž"]
-    if input not in povolene_znaky:
+    if len(input) > 1:
+        return False
+    if not input.isalpha():
         return False
 
 
@@ -54,7 +54,7 @@ def hrat_obesence(hledane_slovo):
 
         pismeno = input("Zkus si tipnout, jaké je v něm písmeno: ")
         if input_kontrola(pismeno) == False:
-            print("Nezadal jsi písmeno. Zkus to znovu.")
+            print("Spatny input. Zkus to znovu.")
             continue
 
         pocet = hledane_slovo.count(pismeno)
