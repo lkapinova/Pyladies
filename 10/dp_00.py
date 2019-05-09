@@ -3,7 +3,6 @@ class CeleCislo:
     def __init__(self, hodnota):
         self.hodnota = hodnota
 
-
     def secti(self, cislo):
         return self.hodnota + cislo.hodnota
 
