@@ -3,20 +3,16 @@ class RodneCislo:
     def __init__(self, rodne_cislo):
         self.hodnota = rodne_cislo
 
-    def __str__(self):
-        return self.hodnota
+    # def __str__(self):
+    #     return self.hodnota
 
     def zkontroluj_format(self):
-        for _ in self.hodnota:
-            if _.isalpha():
-                return False
-
-        if '/' in self.hodnota:
-            divided_rc = self.hodnota.split('/', 1)
-            if len(divided_rc[0]) == 6 and len(divided_rc[1]) == 4:
-                return True
-            else:
-                return False
+        if len(self.hodnota) != 11:
+            return False
+        if self.hodnota[6] != '/':
+            return False
+        if self.hodnota[:6].isdigit() and self.hodnota[7:].isdigit():
+            return True
         else:
             return False
 
