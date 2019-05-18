@@ -5,4 +5,5 @@ python:
 install:
 - python -m pip install -U pytest
 script:
+- cd Testovani
 - python -m pytest test_fizzbuzz.py
