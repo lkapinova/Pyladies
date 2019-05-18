@@ -20,3 +20,4 @@
 * https://unicode-table.com/en/#0696
 * https://cojeapi.readthedocs.io/cs/latest/
 * API - github/honzajavorek - materialy
+* Testovani - https://github.com/pyvec/pyworking-materials/tree/master/180324_Testovani
