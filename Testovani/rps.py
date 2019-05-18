@@ -26,4 +26,3 @@ else:
         print('You win!')
     else:
         print('Computer win!')
-
