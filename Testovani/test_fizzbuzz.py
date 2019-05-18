@@ -38,3 +38,6 @@ def test_fb_raises_TypeError_on_nonint(num):
 def test_fb_raises_TypeError_on_nonpositive(num):
     with pytest.raises(TypeError):
         fizzbuzz(num)
+
+def test_fb_is_callable_with_1_argument():
+    fizzbuzz(3)
