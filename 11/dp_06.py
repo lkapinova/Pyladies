@@ -43,7 +43,7 @@ def secti_celkovou_kapacitu(seznam_vozu):
 
 
 def najdi_vhodny_vuz(seznam_vozu, kapacita, delka_trasy):
-    nejlevnejsi_naklady = 10000
+    #nejlevnejsi_naklady = 10000
     for vuz in seznam_vozu:
         if vuz.kapacita >= kapacita and vuz.je_dojezd_dostatecny(delka_trasy):
             if vuz.naklady < nejlevnejsi_naklady:
