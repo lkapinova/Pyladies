@@ -11,6 +11,10 @@
 * 07 Seznamy
 * 08 Slovníky
 * 09 Výjimky, moduly & testování 
+* 10 Opakování & Třídy
+* 11 Třídy a dědičnost
+* 12 Grafika
+* 13 Datová analýza
 
 
 # Odkazy:
@@ -21,3 +25,4 @@
 * https://cojeapi.readthedocs.io/cs/latest/
 * API - github/honzajavorek - materialy
 * Testovani - https://github.com/pyvec/pyworking-materials/tree/master/180324_Testovani
+* Grafika - https://github.com/VecnyOptimista/pyladies-2019-l
