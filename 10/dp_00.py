@@ -14,6 +14,18 @@ class CeleCislo:
 
     def vydel(self, cislo):
         return CeleCislo(self.hodnota / cislo.hodnota)
+    
+    def __add__(self, other):
+        return self.secti(other)
+
+    def __sub__(self, other):
+        return self.odecti(other)
+    
+    def __mul__(self, other):
+        return self.vynasob(other)
+    
+    def __truediv__(self, other):
+        return self.vydel(other)
 
     # vracim cele cislo pro konzistenci
     def porovnej(self, cislo):
@@ -40,11 +52,15 @@ tri = CeleCislo(3)
 sedm = CeleCislo(7)
 dvanact = CeleCislo(12)
 
-print(sedm.secti(dva).je_sude())
-print(sedm.secti(dvanact))
-print(sedm.vydel(dva))
-print(sedm.vynasob(tri))
-print(sedm.odecti(jedna))
-print(sedm.porovnej(dvanact))
-print(dvanact.porovnej(tri))
-print(dvanact.je_sude())
+x = sedm + dvanact - dva
+print(x)
+
+# print(sedm.secti(dva).je_sude())
+# print(sedm.secti(dvanact))
+print(sedm / dva)
+print(sedm * tri)
+# print(sedm.odecti(jedna))
+# print(sedm.porovnej(dvanact))
+# print(dvanact.porovnej(tri))
+# print(dvanact.je_sude())
+
