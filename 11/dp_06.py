@@ -1,3 +1,5 @@
+import sys
+
 class Vuz:
     def __init__(self, jmeno, kapacita, spz, naklady):
         self.jmeno = jmeno
@@ -17,10 +19,12 @@ class DieselVuz(Vuz):
 
 class ElektroVuz(Vuz):
     def __init__(self, jmeno, kapacita, spz, naklady, dojezd):
-        self.jmeno = jmeno
-        self.kapacita = kapacita
-        self.spz = spz
-        self.naklady = naklady  # naklady vozu na 1 km
+
+        # self.jmeno = jmeno
+        # self.kapacita = kapacita
+        # self.spz = spz
+        # self.naklady = naklady  # naklady vozu na 1 km
+        super().__init__(jmeno, kapacita, spz, naklady)
         self.dojezd = dojezd    # dojezd na jendo nabiti
 
     def je_dojezd_dostatecny(self, dojezd):
@@ -43,7 +47,7 @@ def secti_celkovou_kapacitu(seznam_vozu):
 
 
 def najdi_vhodny_vuz(seznam_vozu, kapacita, delka_trasy):
-    #nejlevnejsi_naklady = 10000
+    nejlevnejsi_naklady = sys.maxsize
     for vuz in seznam_vozu:
         if vuz.kapacita >= kapacita and vuz.je_dojezd_dostatecny(delka_trasy):
             if vuz.naklady < nejlevnejsi_naklady:
