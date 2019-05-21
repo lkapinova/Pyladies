@@ -1,5 +1,6 @@
 import sys
 
+
 class Vuz:
     def __init__(self, jmeno, kapacita, spz, naklady):
         self.jmeno = jmeno
@@ -19,24 +20,11 @@ class DieselVuz(Vuz):
 
 class ElektroVuz(Vuz):
     def __init__(self, jmeno, kapacita, spz, naklady, dojezd):
-
-        # self.jmeno = jmeno
-        # self.kapacita = kapacita
-        # self.spz = spz
-        # self.naklady = naklady  # naklady vozu na 1 km
         super().__init__(jmeno, kapacita, spz, naklady)
         self.dojezd = dojezd    # dojezd na jendo nabiti
 
     def je_dojezd_dostatecny(self, dojezd):
         return self.dojezd >= dojezd
-
-
-class HybridVuz(Vuz):
-
-    def je_dojezd_dostatecny(self, dojezd):
-        return True
-
-    # def vypocti_naklady(self, delka_trasy):
 
 
 def secti_celkovou_kapacitu(seznam_vozu):
