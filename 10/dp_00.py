@@ -13,7 +13,7 @@ class CeleCislo:
         return CeleCislo(self.hodnota * cislo.hodnota)
 
     def vydel(self, cislo):
-        return CeleCislo(self.hodnota / cislo.hodnota)
+        return CeleCislo(self.hodnota // cislo.hodnota)
     
     def __add__(self, other):
         return self.secti(other)
@@ -55,12 +55,12 @@ dvanact = CeleCislo(12)
 x = sedm + dvanact - dva
 print(x)
 
-# print(sedm.secti(dva).je_sude())
-# print(sedm.secti(dvanact))
+print(sedm.secti(dva).je_sude())
+print(sedm.secti(dvanact))
 print(sedm / dva)
 print(sedm * tri)
-# print(sedm.odecti(jedna))
-# print(sedm.porovnej(dvanact))
-# print(dvanact.porovnej(tri))
-# print(dvanact.je_sude())
+print(sedm.odecti(jedna))
+print(sedm.porovnej(dvanact))
+print(dvanact.porovnej(tri))
+print(dvanact.je_sude())
 

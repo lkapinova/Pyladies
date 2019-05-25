@@ -61,15 +61,14 @@ def secti_celkovou_kapacitu(seznam_vozu):
 
 
 def najdi_vhodny_vuz(seznam_vozu, kapacita, delka_trasy, cena_nafty, cena_elektriny):
-    nejnizsi_naklady = sys.maxsize
+    vybrane_vozy = []
     for vuz in seznam_vozu:
-        if vuz.kapacita >= kapacita and vuz.je_dojezd_dostatecny(delka_trasy, cena_nafty, cena_elektriny):
-            celkove_naklady = vuz.celkove_naklady(delka_trasy)
-            if celkove_naklady < nejnizsi_naklady:
-                vybrany_vuz = vuz
-                nejnizsi_naklady = celkove_naklady
-
-    return vybrany_vuz
+        if vuz.kapacita >= kapacita and vuz.je_dojezd_dostatecny(delka_trasy):
+            vybrane_vozy.append(vuz)
+    if not vybrane_vozy:
+        return None
+    else:
+        return min(vybrane_vozy, key=lambda vuz: vuz.celkove_naklady(delka_trasy, cena_nafty, cena_elektriny))
 
 
 vozovy_park = [
