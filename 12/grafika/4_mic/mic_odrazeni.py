@@ -36,15 +36,15 @@ def pohyb(dt):
         element.objekt.x += element.rychlost_x
         element.objekt.y += element.rychlost_y
         
-        element.rychlost_y -= 1
+       # element.rychlost_y -= 1
 
 
     # (6) TODO: Pokud se element dostane na okraj okna, odrazi se (take na obou osach)
         if element.objekt.x < 0 or element.objekt.x > window.width - element.objekt.width:
-            element.rychlost_x = - element.rychlost_x 
+            element.rychlost_x = - element.rychlost_x    
         if element.objekt.y < 0 or element.objekt.y > window.height - element.objekt.height:
             element.rychlost_y = - element.rychlost_y
-
+              
 
 pyglet.clock.schedule_interval(pohyb, 1/60)
 window.push_handlers(on_draw=vykresli)
