@@ -26,3 +26,4 @@
 * API - github/honzajavorek - materialy
 * Testovani - https://github.com/pyvec/pyworking-materials/tree/master/180324_Testovani
 * Grafika - https://github.com/VecnyOptimista/pyladies-2019-l
+* Pandas grafy - https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html
