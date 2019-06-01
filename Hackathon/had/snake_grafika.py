@@ -2,17 +2,16 @@ import pyglet
 import random
 import snake_tiles
 from pyglet.window import key
-#from pathlib import Path
+from pathlib import Path
 
 
 square_side = 64
 width = 15
 height = 10
-picture = pyglet.image.load('green.png')
+picture = snake_tiles.snake_tiles['tail-head']
 picture_apple = pyglet.image.load('red.png')
 svetova_strana = 'v'
 game_is_running = True
-
 
 
 class Pixel():
@@ -108,7 +107,6 @@ def add_apple(snake_coords, apples_coords):
         new_apple = Apple(picture_apple, x, y)
         if new_apple not in snake_coords and new_apple not in apples_coords:
             apples_coords.append(new_apple)
-            
 
 
 def tik(time):
@@ -116,6 +114,7 @@ def tik(time):
         add_apple(snake_coords, apples_coords)
         pohyb(snake_coords, svetova_strana)
         print(snake_coords)
+
 
 snake_coords = [Pixel(picture, 0, 5), Pixel(picture, 1, 5), Pixel(
     picture, 2, 5), Pixel(picture, 3, 5), Pixel(picture, 4, 5), Pixel(picture, 5, 5)]
