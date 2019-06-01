@@ -1,9 +1,10 @@
 import pyglet
+from pyglet.window import key
 
 
 square_side = 64
 picture = pyglet.image.load('green.png')
-
+svetova_strana = 'v'
 
 class Snake():
 
@@ -44,13 +45,28 @@ def pohyb(seznam_poli, svetova_strana):
     del seznam_poli[0]
     seznam_poli.append(nove_pole)
 
+
+def stisk_klavesy(symbol, modifikatory):
+    global svetova_strana
+    if symbol == key.UP:
+        svetova_strana = 's'
+    if symbol == key.DOWN:
+        svetova_strana = 'j'
+    if symbol == key.LEFT:
+        svetova_strana = 'z'
+    if symbol == key.RIGHT:
+        svetova_strana = 'v'
+
+
+
 def tik(time):
-    pohyb(snake_coords, 'z')
+    pohyb(snake_coords, svetova_strana)
 
 snake_coords = [Snake(picture, 4, 5), Snake(picture, 5, 5)]
 
 pyglet.clock.schedule_interval(tik, 1)
 window = pyglet.window.Window(width=15*square_side, height=10*square_side)
-window.push_handlers(on_draw=place_snake)
+window.push_handlers(on_draw=place_snake,
+on_key_press=stisk_klavesy)
 
 pyglet.app.run()
