@@ -27,3 +27,5 @@
 * Testovani - https://github.com/pyvec/pyworking-materials/tree/master/180324_Testovani
 * Grafika - https://github.com/VecnyOptimista/pyladies-2019-l
 * Pandas grafy - https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html
+* Hackathon - https://github.com/hroncok?tab=overview&from=2018-10-01&to=2018-10-25
+* Miro Hroncok GIT - https://github.com/hroncok?tab=overview&from=2018-10-01&to=2018-10-25
