@@ -3,6 +3,8 @@ from pyglet.window import key
 
 
 square_side = 64
+width = 15
+height = 10
 picture = pyglet.image.load('green.png')
 svetova_strana = 'v'
 
@@ -13,7 +15,8 @@ class Snake():
         self.coord_x = x
         self.coord_y = y
 
-    
+    def __repr__(self):
+        return f"({self.coord_x},{self.coord_y})"
 
 def place_snake():
     window.clear()
@@ -29,7 +32,7 @@ def pohyb(seznam_poli, svetova_strana):
 
     x = seznam_poli[-1].coord_x
     y = seznam_poli[-1].coord_y
-    print(x,y)
+    #print(x,y)
 
     if svetova_strana == 's':
         y += 1
@@ -60,12 +63,23 @@ def stisk_klavesy(symbol, modifikatory):
 
 
 def tik(time):
-    pohyb(snake_coords, svetova_strana)
+    x = snake_coords[-1].coord_x
+    y = snake_coords[-1].coord_y
+    
+    if x == 0 or x == width-1 or y == 0 or y == height-1:
+        pass
+    else:
+        pohyb(snake_coords, svetova_strana)
+
+
+    print(snake_coords)
+
 
 snake_coords = [Snake(picture, 4, 5), Snake(picture, 5, 5)]
 
+
 pyglet.clock.schedule_interval(tik, 1)
-window = pyglet.window.Window(width=15*square_side, height=10*square_side)
+window = pyglet.window.Window(width=width*square_side, height=height*square_side)
 window.push_handlers(on_draw=place_snake,
 on_key_press=stisk_klavesy)
 
