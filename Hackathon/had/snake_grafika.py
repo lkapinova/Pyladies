@@ -1,6 +1,8 @@
 import pyglet
 import random
+import snake_tiles
 from pyglet.window import key
+#from pathlib import Path
 
 
 square_side = 64
@@ -10,6 +12,7 @@ picture = pyglet.image.load('green.png')
 picture_apple = pyglet.image.load('red.png')
 svetova_strana = 'v'
 game_is_running = True
+
 
 
 class Pixel():
