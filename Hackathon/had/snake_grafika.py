@@ -156,7 +156,7 @@ def tik(time):
         # print(snake_coords)
 
 
-# vstupn9 data
+# vstupni data
 snake_coords = [Pixel(picture, 3, 5), Pixel(
     picture, 4, 5), Pixel(picture, 5, 5)]
 apples_coords = []
