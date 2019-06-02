@@ -30,6 +30,7 @@ class Pixel():
     def set_picture(self, picture):
         self.picture = picture
 
+
 class Apple(Pixel):
 
     def __init__(self, picture, x, y):
@@ -40,15 +41,16 @@ class Apple(Pixel):
 
 def place_pixels():
     window.clear()
-    vector2name = {(-1,0): 'left', (1,0): 'right', (0,1): 'top', (0,-1): 'bottom'}
-    
+    vector2name = {(-1, 0): 'left', (1, 0): 'right',
+                   (0, 1): 'top', (0, -1): 'bottom'}
+
     # hlava
     delta_x = snake_coords[-2].coord_x - snake_coords[-1].coord_x
     delta_y = snake_coords[-2].coord_y - snake_coords[-1].coord_y
     delta = (delta_x, delta_y)
     direction = vector2name[delta]
     piece = pyglet.sprite.Sprite(
-            snake_tiles.snake_tiles[direction+'-head'], snake_coords[-1].coord_x*square_side, snake_coords[-1].coord_y*square_side)
+        snake_tiles.snake_tiles[direction+'-head'], snake_coords[-1].coord_x*square_side, snake_coords[-1].coord_y*square_side)
     piece.draw()
 
     # ocas
@@ -57,29 +59,25 @@ def place_pixels():
     delta = (delta_x, delta_y)
     direction = vector2name[delta]
     piece = pyglet.sprite.Sprite(
-            snake_tiles.snake_tiles['tail-'+direction], snake_coords[0].coord_x*square_side, snake_coords[0].coord_y*square_side)
+        snake_tiles.snake_tiles['tail-'+direction], snake_coords[0].coord_x*square_side, snake_coords[0].coord_y*square_side)
     piece.draw()
 
-
-    for i in range(1,len(snake_coords)-1):
+    # tělo
+    for i in range(1, len(snake_coords)-1):
         r_delta_x = snake_coords[i+1].coord_x - snake_coords[i].coord_x
         r_delta_y = snake_coords[i+1].coord_y - snake_coords[i].coord_y
-        l_delta_x = snake_coords[i].coord_x - snake_coords[i-1].coord_x
-        l_delta_y = snake_coords[i].coord_y - snake_coords[i-1].coord_y
+        l_delta_x = snake_coords[i-1].coord_x - snake_coords[i].coord_x
+        l_delta_y = snake_coords[i-1].coord_y - snake_coords[i].coord_y
         r_delta = (r_delta_x, r_delta_y)
         l_delta = (l_delta_x, l_delta_y)
         r_direction = vector2name[r_delta]
         l_direction = vector2name[l_delta]
         piece = pyglet.sprite.Sprite(
-            snake_tiles.snake_tiles[r_direction + '-' + l_direction], snake_coords[i].coord_x*square_side, snake_coords[i].coord_y*square_side)
+            snake_tiles.snake_tiles[l_direction + '-' + r_direction], snake_coords[i].coord_x*square_side, snake_coords[i].coord_y*square_side)
         piece.draw()
 
-        
 
-       
-        
-        piece.draw()
-
+    # jablka
     for item in apples_coords:
         piece = pyglet.sprite.Sprite(
             item.picture, item.coord_x*square_side, item.coord_y*square_side)
@@ -152,8 +150,10 @@ def tik(time):
         print(snake_coords)
 
 
-pictures = [snake_tiles.snake_tiles['tail-right'], snake_tiles.snake_tiles['right-right'], snake_tiles.snake_tiles['left-tongue']]
-snake_coords = [Pixel(picture, 3, 5), Pixel(picture, 4, 5), Pixel(picture, 5, 5)]
+pictures = [snake_tiles.snake_tiles['tail-right'],
+            snake_tiles.snake_tiles['right-right'], snake_tiles.snake_tiles['left-tongue']]
+snake_coords = [Pixel(picture, 3, 5), Pixel(
+    picture, 4, 5), Pixel(picture, 5, 5)]
 apples_coords = []
 
 add_apple(snake_coords, apples_coords)
