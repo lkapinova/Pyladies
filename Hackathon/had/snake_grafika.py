@@ -40,6 +40,8 @@ class Apple(Pixel):
 
 
 def place_pixels():
+    """Funkce vykresluje po pixelech hada i ovoce""" 
+
     window.clear()
     vector2name = {(-1, 0): 'left', (1, 0): 'right',
                    (0, 1): 'top', (0, -1): 'bottom'}
@@ -50,7 +52,7 @@ def place_pixels():
     delta = (delta_x, delta_y)
     direction = vector2name[delta]
     piece = pyglet.sprite.Sprite(
-        snake_tiles.snake_tiles[direction+'-head'], snake_coords[-1].coord_x*square_side, snake_coords[-1].coord_y*square_side)
+        snake_tiles.snake_tiles[direction+'-tongue'], snake_coords[-1].coord_x*square_side, snake_coords[-1].coord_y*square_side)
     piece.draw()
 
     # ocas
@@ -86,7 +88,8 @@ def place_pixels():
 
 def pohyb(seznam_poli, svetova_strana):
     """Funkce ze seznamu souřadnic a světové strany (zadané jako: "s", "j", "v" nebo "z")
-     a přidá k seznamu souřadnice bodu posunutý v zadaném směru."""
+     a přidá k seznamu souřadnice bodu posunutý v zadaném směru.
+     Prodlužuje hada, pokud sní ovoce, a ukončuje hru, pokud had vyleze z herního plánu."""
 
     global game_is_running
 
@@ -123,6 +126,7 @@ def pohyb(seznam_poli, svetova_strana):
 
 
 def stisk_klavesy(symbol, modifikatory):
+    """Převod stisku kláves na světové strany"""
     global svetova_strana
     if symbol == key.UP:
         svetova_strana = 's'
@@ -135,6 +139,7 @@ def stisk_klavesy(symbol, modifikatory):
 
 
 def add_apple(snake_coords, apples_coords):
+    """Funkce přidává ovoce tak, aby v herním plánu byly vždy tři kusy ovoce."""
     while len(apples_coords) < 3:
         x = random.randrange(width-1)
         y = random.randrange(height-1)
@@ -144,20 +149,21 @@ def add_apple(snake_coords, apples_coords):
 
 
 def tik(time):
+    """Volání fukncí v jednom tiku"""
     if game_is_running:
         add_apple(snake_coords, apples_coords)
         pohyb(snake_coords, svetova_strana)
-        print(snake_coords)
+        # print(snake_coords)
 
 
-pictures = [snake_tiles.snake_tiles['tail-right'],
-            snake_tiles.snake_tiles['right-right'], snake_tiles.snake_tiles['left-tongue']]
+# vstupn9 data
 snake_coords = [Pixel(picture, 3, 5), Pixel(
     picture, 4, 5), Pixel(picture, 5, 5)]
 apples_coords = []
 
+# hra, pyglet
 add_apple(snake_coords, apples_coords)
-pyglet.clock.schedule_interval(tik, 1)
+pyglet.clock.schedule_interval(tik, 1/2)
 window = pyglet.window.Window(
     width=width*square_side, height=height*square_side)
 window.push_handlers(on_draw=place_pixels,
