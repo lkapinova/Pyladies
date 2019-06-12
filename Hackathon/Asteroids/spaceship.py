@@ -18,3 +18,6 @@ class Spaceship():
         self.sprite.x = self.x
         self.sprite.y = self.y
         self.sprite.draw()
+    
+    def tick(self, time):
+        print('Tick tack.')
