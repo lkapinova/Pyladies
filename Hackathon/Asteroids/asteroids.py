@@ -3,8 +3,8 @@ import images
 from spaceship import Spaceship
 
 
-window_width = 800
-window_height = 400
+window_width = 1000
+window_height = 600
 
 
 objects = []

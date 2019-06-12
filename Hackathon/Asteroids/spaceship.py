@@ -10,6 +10,8 @@ class Spaceship():
         self.rotation = 0
 
         image =  pyglet.image.load('./images/PNG/playerShip1_blue.png')
+        image.anchor_x = image.width // 2
+        image.anchor_y = image.height // 2
         self.sprite = pyglet.sprite.Sprite(image)
     
     def draw(self):
